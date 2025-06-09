@@ -1,0 +1,41 @@
+{% set name = "argparse-cpp" %}
+{% set version = "3.2" %}
+{% set github_url = "https://github.com/p-ranav/argparse" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  git_url: {{ github_url }}.git
+  git_tag: v{{ version }}
+
+build:
+  number: 0
+  skip: true  # [win]
+
+test:
+  commands:
+    - test -f $PREFIX/include/argparse/argparse.hpp
+
+about:
+  home: {{ github_url }}
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Argument parser for modern C++
+  description: |
+    Argparse is a single-header argument parser for C++17 and beyond.
+    It provides a simple and intuitive interface for parsing command-line arguments.
+    Features include:
+    - Single header file
+    - Modern C++17 features
+    - Type-safe argument parsing
+    - Support for subcommands
+    - Built-in help and version flags
+  doc_url: {{ github_url }}
+  dev_url: {{ github_url }}
+
+extra:
+  recipe-maintainers:
+    - your-github-username
